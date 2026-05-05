@@ -337,7 +337,7 @@
 <nav class="topbar">
   <div class="topbar-brand">
     <div class="dot"></div>
-    CardScoreboard &nbsp;·&nbsp; CA Technology
+    CardScoreboard
   </div>
   <button id="btn-pdf">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -350,12 +350,10 @@
 </nav>
 
 <header class="hero">
-  <span class="hero-eyebrow">Documento legale</span>
   <h1>Privacy Policy</h1>
-  <p class="hero-sub">Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR)</p>
+  <p class="hero-sub">Informativa sul trattamento dei dati personali</p>
   <div class="hero-meta">
     <div class="hero-meta-item"><span class="label">Applicazione</span><span class="value">CardScoreboard</span></div>
-    <div class="hero-meta-item"><span class="label">Titolare</span><span class="value">CA Technology</span></div>
     <div class="hero-meta-item"><span class="label">Ultimo aggiornamento</span><span class="value">Maggio 2026</span></div>
     <div class="hero-meta-item"><span class="label">Versione</span><span class="value">1.0</span></div>
   </div>
@@ -385,7 +383,7 @@
 
   <section class="section" id="s1">
     <div class="section-header"><span class="section-num">01</span><h2>Titolare del trattamento</h2></div>
-    <p>Il titolare del trattamento dei dati è <strong>CA Technology</strong>, raggiungibile all'indirizzo email <strong>catech-software@outlook.it</strong>.</p>
+    <p>Il titolare del trattamento dei dati è raggiungibile all'indirizzo email <strong>catech-software@outlook.it</strong>.</p>
     <p>La presente informativa si applica all'applicazione mobile <strong>CardScoreboard</strong>, disponibile su Google Play Store.</p>
   </section>
 
@@ -406,7 +404,7 @@
   <section class="section" id="s3">
     <div class="section-header"><span class="section-num">03</span><h2>Dati salvati localmente</h2></div>
     <p>I contenuti inseriti dall'utente all'interno dell'applicazione — inclusi nomi dei giocatori, punteggi e storico delle partite — vengono salvati esclusivamente nella memoria locale del dispositivo.</p>
-    <p>Tali informazioni non vengono mai trasmesse all'esterno, non sono accessibili da CA Technology né da alcun soggetto terzo. L'utente ne mantiene il pieno controllo e può eliminarle in qualsiasi momento tramite la funzione di cancellazione presente nell'app o disinstallando l'applicazione.</p>
+    <p>Tali informazioni non vengono mai trasmesse all'esterno, non sono accessibili dal titolare né da alcun soggetto terzo. L'utente ne mantiene il pieno controllo e può eliminarle in qualsiasi momento tramite la funzione di cancellazione presente nell'app o disinstallando l'applicazione.</p>
   </section>
 
   <section class="section" id="s4">
@@ -418,7 +416,7 @@
   <section class="section" id="s5">
     <div class="section-header"><span class="section-num">05</span><h2>Condivisione dei dati</h2></div>
     <p>Non essendo raccolto alcun dato personale, non vi è alcuna condivisione di informazioni con soggetti terzi, inserzionisti, partner commerciali, autorità pubbliche o qualsiasi altra entità.</p>
-    <p>CA Technology non vende, affitta né cede a terzi dati relativi agli utenti di CardScoreboard.</p>
+    <p>Il titoloare non vende, affitta né cede a terzi dati relativi agli utenti di CardScoreboard.</p>
   </section>
 
   <section class="section" id="s6">
@@ -489,7 +487,7 @@ document.getElementById('btn-pdf').addEventListener('click', async () => {
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(6.5);
       doc.setTextColor(255, 255, 255);
-      doc.text('CARDSCOREBOARD  ·  CA TECHNOLOGY', ML, 8.5);
+      doc.text('CARDSCOREBOARD', ML, 8.5);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(...muted);
       doc.text('PRIVACY POLICY  ·  V1.0  ·  MAGGIO 2026', W - MR, 8.5, { align: 'right' });
