@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – CardScoreboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1a2e;
+      --ink-light:  #4a4a6a;
+      --ink-muted:  #8888aa;
+      --rule:       #dddde8;
+      --bg:         #fafaf8;
+      --bg-alt:     #f4f4f0;
+      --accent:     #1a1a2e;
+      --accent-warm:#c8a84b;
+      --radius:     4px;
+      --max-w:      720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TOP BAR */
+    .topbar {
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+      height: 52px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .topbar-brand .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-warm);
+    }
+
+    #btn-pdf {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    #btn-pdf:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); }
+    #btn-pdf:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* HERO */
+    .hero {
+      background: var(--ink);
+      color: #fff;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-warm);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+
+    .hero-meta-item { text-align: center; }
+
+    .hero-meta-item .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-meta-item .value {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+
+    /* NOTICE */
+    .notice {
+      background: #eaf5ea;
+      border-bottom: 1px solid #c3dec3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.8rem 2rem;
+      font-size: 0.8rem;
+      color: #2d6a2d;
+      font-weight: 500;
+    }
+
+    .notice-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4caf50;
+      flex-shrink: 0;
+    }
+
+    /* DOCUMENT */
+    .document {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 1.6rem 2rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .toc-title {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.3rem 1.5rem;
+    }
+
+    @media (max-width: 520px) { .toc ol { grid-template-columns: 1fr; } }
+
+    .toc ol li { counter-increment: toc; font-size: 0.82rem; }
+
+    .toc ol li a {
+      color: var(--ink-light);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .toc ol li a::before {
+      content: counter(toc, decimal-leading-zero);
+      font-size: 0.65rem;
+      color: var(--ink-muted);
+      flex-shrink: 0;
+    }
+
+    .toc ol li a:hover { color: var(--ink); }
+
+    /* SECTIONS */
+    .section { margin-bottom: 3rem; scroll-margin-top: 70px; }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section-num {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--accent-warm);
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .section p { color: var(--ink-light); font-size: 0.92rem; margin-bottom: 0.8rem; }
+    .section p:last-child { margin-bottom: 0; }
+
+    .section ul { list-style: none; padding: 0; margin: 0.6rem 0 0.8rem; }
+
+    .section ul li {
+      font-size: 0.92rem;
+      color: var(--ink-light);
+      padding: 0.35rem 0 0.35rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .section ul li:last-child { border-bottom: none; }
+
+    .section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent-warm);
+    }
+
+    .callout {
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent-warm);
+      border-radius: var(--radius);
+      padding: 1rem 1.2rem;
+      font-size: 0.87rem;
+      color: var(--ink-light);
+      margin-top: 0.8rem;
+      font-style: italic;
+    }
+
+    /* CONTACT CARD */
+    .contact-card {
+      background: var(--ink);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 1.8rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-card .name { font-family: 'Libre Baskerville', serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .contact-card .role { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; }
+
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .contact-card a:hover { background: rgba(255,255,255,0.15); }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--rule);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      line-height: 2;
+    }
+
+    footer strong { color: var(--ink-light); }
+    a { color: inherit; }
+  </style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-brand">
+    <div class="dot"></div>
+    CardScoreboard &nbsp;·&nbsp; CA Technology
+  </div>
+  <button id="btn-pdf">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    Scarica PDF
+  </button>
+</nav>
+
+<header class="hero">
+  <span class="hero-eyebrow">Documento legale</span>
+  <h1>Privacy Policy</h1>
+  <p class="hero-sub">Informativa sul trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR)</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="label">Applicazione</span><span class="value">CardScoreboard</span></div>
+    <div class="hero-meta-item"><span class="label">Titolare</span><span class="value">CA Technology</span></div>
+    <div class="hero-meta-item"><span class="label">Ultimo aggiornamento</span><span class="value">Maggio 2026</span></div>
+    <div class="hero-meta-item"><span class="label">Versione</span><span class="value">1.0</span></div>
+  </div>
+</header>
+
+<div class="notice">
+  <div class="notice-dot"></div>
+  Questa applicazione non raccoglie, non trasmette e non condivide alcun dato personale.
+</div>
+
+<main class="document">
+
+  <nav class="toc">
+    <div class="toc-title">Indice</div>
+    <ol>
+      <li><a href="#s1">Titolare del trattamento</a></li>
+      <li><a href="#s2">Dati raccolti</a></li>
+      <li><a href="#s3">Dati salvati localmente</a></li>
+      <li><a href="#s4">Connessione a internet</a></li>
+      <li><a href="#s5">Condivisione dei dati</a></li>
+      <li><a href="#s6">Sicurezza</a></li>
+      <li><a href="#s7">Minori</a></li>
+      <li><a href="#s8">Modifiche alla policy</a></li>
+      <li><a href="#s9">Contatti</a></li>
+    </ol>
+  </nav>
+
+  <section class="section" id="s1">
+    <div class="section-header"><span class="section-num">01</span><h2>Titolare del trattamento</h2></div>
+    <p>Il titolare del trattamento dei dati è <strong>CA Technology</strong>, raggiungibile all'indirizzo email <strong>catech-software@outlook.it</strong>.</p>
+    <p>La presente informativa si applica all'applicazione mobile <strong>CardScoreboard</strong>, disponibile su Google Play Store.</p>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-header"><span class="section-num">02</span><h2>Dati raccolti</h2></div>
+    <p>CardScoreboard <strong>non raccoglie alcun dato personale</strong>. In particolare, l'applicazione non acquisisce né trasmette:</p>
+    <ul>
+      <li>Dati anagrafici o identificativi (nome, cognome, indirizzo email)</li>
+      <li>Dati di localizzazione geografica</li>
+      <li>Dati di utilizzo o statistiche di comportamento</li>
+      <li>Informazioni sul dispositivo (modello, sistema operativo, identificatori univoci)</li>
+      <li>Cookie, token pubblicitari o identificatori di tracciamento</li>
+      <li>Dati biometrici o sanitari</li>
+    </ul>
+    <div class="callout">L'app non integra SDK di analytics, advertising o crash reporting di terze parti. Nessun dato viene inviato a server esterni in alcuna circostanza durante il normale utilizzo.</div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-header"><span class="section-num">03</span><h2>Dati salvati localmente</h2></div>
+    <p>I contenuti inseriti dall'utente all'interno dell'applicazione — inclusi nomi dei giocatori, punteggi e storico delle partite — vengono salvati esclusivamente nella memoria locale del dispositivo.</p>
+    <p>Tali informazioni non vengono mai trasmesse all'esterno, non sono accessibili da CA Technology né da alcun soggetto terzo. L'utente ne mantiene il pieno controllo e può eliminarle in qualsiasi momento tramite la funzione di cancellazione presente nell'app o disinstallando l'applicazione.</p>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-header"><span class="section-num">04</span><h2>Connessione a internet</h2></div>
+    <p>CardScoreboard è progettata per funzionare in modalità completamente offline. Non viene stabilita alcuna connessione a internet durante il normale utilizzo dell'applicazione.</p>
+    <p>L'unica eccezione è rappresentata dal modulo di contatto integrato nell'app, che consente all'utente di inviare volontariamente un messaggio allo sviluppatore. Tale funzionalità è attivata esclusivamente su esplicita iniziativa dell'utente.</p>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-header"><span class="section-num">05</span><h2>Condivisione dei dati</h2></div>
+    <p>Non essendo raccolto alcun dato personale, non vi è alcuna condivisione di informazioni con soggetti terzi, inserzionisti, partner commerciali, autorità pubbliche o qualsiasi altra entità.</p>
+    <p>CA Technology non vende, affitta né cede a terzi dati relativi agli utenti di CardScoreboard.</p>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-header"><span class="section-num">06</span><h2>Sicurezza</h2></div>
+    <p>Tutti i dati generati dall'utente risiedono unicamente sul dispositivo locale. L'assenza di trasmissione verso server esterni elimina qualsiasi rischio di violazione dei dati in transito.</p>
+    <p>La sicurezza dei dati archiviati localmente è garantita dalle misure di protezione del sistema operativo Android (sandboxing delle applicazioni, cifratura del dispositivo se abilitata dall'utente).</p>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-header"><span class="section-num">07</span><h2>Minori</h2></div>
+    <p>CardScoreboard non raccoglie informazioni da alcun utente, inclusi i minori di età. L'applicazione è adatta a tutte le fasce d'età e non richiede la creazione di account o la comunicazione di dati personali per il suo utilizzo.</p>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-header"><span class="section-num">08</span><h2>Modifiche alla Privacy Policy</h2></div>
+    <p>La presente Privacy Policy potrà essere aggiornata in futuro, ad esempio in occasione dell'introduzione di nuove funzionalità che comportino il trattamento di dati personali.</p>
+    <p>Eventuali modifiche sostanziali saranno comunicate tramite aggiornamento dell'app su Google Play Store e mediante la modifica della data di "Ultimo aggiornamento" riportata in questa pagina. Si raccomanda di consultare periodicamente questa pagina.</p>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-header"><span class="section-num">09</span><h2>Contatti</h2></div>
+    <p>Per qualsiasi richiesta, domanda o reclamo relativo alla presente Privacy Policy o al trattamento dei dati, è possibile contattare il titolare del trattamento:</p>
+    <div class="contact-card" style="margin-top:1rem;">
+      <div>
+        <div class="name">CA Technology</div>
+        <div class="role">Titolare del trattamento</div>
+      </div>
+      <a href="mailto:catech-software@outlook.it">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        catech-software@outlook.it
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>CardScoreboard</strong> &nbsp;·&nbsp; CA Technology &nbsp;·&nbsp; catech-software@outlook.it<br>
+  Informativa redatta ai sensi del Reg. UE 2016/679 (GDPR) &nbsp;·&nbsp; Versione 1.0 &nbsp;·&nbsp; Maggio 2026
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+document.getElementById('btn-pdf').addEventListener('click', async () => {
+  const btn = document.getElementById('btn-pdf');
+  btn.textContent = 'Generazione...';
+  btn.disabled = true;
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'mm', format: 'a4' });
+
+    const W = 210, H = 297;
+    const ML = 20, MR = 20, MT = 20, MB = 18;
+    const TW = W - ML - MR;
+    const gold  = [200, 168, 75];
+    const ink   = [26, 26, 46];
+    const grey  = [74, 74, 106];
+    const muted = [136, 136, 170];
+    const light = [244, 244, 240];
+
+    let y = MT;
+    let pageNum = 0;
+
+    function addPageHeader() {
+      doc.setFillColor(...ink);
+      doc.rect(0, 0, W, 13, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6.5);
+      doc.setTextColor(255, 255, 255);
+      doc.text('CARDSCOREBOARD  ·  CA TECHNOLOGY', ML, 8.5);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(...muted);
+      doc.text('PRIVACY POLICY  ·  V1.0  ·  MAGGIO 2026', W - MR, 8.5, { align: 'right' });
+    }
+
+    function addPageFooter() {
+      doc.setFillColor(...light);
+      doc.rect(0, H - 11, W, 11, 'F');
+      doc.setDrawColor(...[221, 221, 232]);
+      doc.setLineWidth(0.3);
+      doc.line(ML, H - 11, W - MR, H - 11);
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(6.5);
+      doc.setTextColor(...muted);
+      doc.text('CA Technology  ·  catech-software@outlook.it  ·  Reg. UE 2016/679 (GDPR)', ML, H - 5);
+      doc.text(`Pagina ${pageNum}`, W - MR, H - 5, { align: 'right' });
+    }
+
+    function newPage(withHeader = true) {
+      if (pageNum > 0) addPageFooter();
+      if (pageNum > 0) doc.addPage();
+      pageNum++;
+      if (withHeader) addPageHeader();
+      y = withHeader ? MT + 16 : MT;
+    }
+
+    function checkPage(needed = 12) {
+      if (y + needed > H - MB - 5) newPage();
+    }
+
+    function sectionTitle(num, title) {
+      checkPage(20);
+      y += 5;
+      doc.setFillColor(...gold);
+      doc.roundedRect(ML, y - 4.5, 10, 6, 1.5, 1.5, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6.5);
+      doc.setTextColor(...ink);
+      doc.text(num, ML + 5, y, { align: 'center' });
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11.5);
+      doc.setTextColor(...ink);
+      doc.text(title, ML + 13, y);
+      y += 2.5;
+      doc.setDrawColor(...gold);
+      doc.setLineWidth(0.5);
+      doc.line(ML, y, W - MR, y);
+      y += 6;
+    }
+
+    function para(text) {
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(9.5);
+      doc.setTextColor(...grey);
+      const lines = doc.splitTextToSize(text, TW);
+      lines.forEach(line => {
+        checkPage(6);
+        doc.text(line, ML, y);
+        y += 5.3;
+      });
+      y += 2;
+    }
+
+    function bullets(items) {
+      items.forEach(item => {
+        checkPage(8);
+        doc.setFillColor(...gold);
+        doc.circle(ML + 2, y - 1.8, 1.2, 'F');
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(9);
+        doc.setTextColor(...grey);
+        const lines = doc.splitTextToSize(item, TW - 7);
+        lines.forEach((line, i) => {
+          checkPage(6);
+          doc.text(line, ML + 6, y);
+          y += 5;
+        });
+      });
+      y += 2;
+    }
+
+    function callout(text) {
+      checkPage(20);
+      const lines = doc.splitTextToSize(text, TW - 10);
+      const bh = lines.length * 5.2 + 10;
+      doc.setFillColor(...light);
+      doc.roundedRect(ML, y - 2, TW, bh, 2, 2, 'F');
+      doc.setFillColor(...gold);
+      doc.rect(ML, y - 2, 2, bh, 'F');
+      doc.setFont('helvetica', 'italic');
+      doc.setFontSize(8.5);
+      doc.setTextColor(...grey);
+      lines.forEach(line => { doc.text(line, ML + 7, y + 3); y += 5.2; });
+      y += 7;
+    }
+
+    // ── COVER PAGE ──
+    pageNum++;
+    doc.setFillColor(...ink);
+    doc.rect(0, 0, W, H, 'F');
+
+    // gold accent bar
+    doc.setFillColor(...gold);
+    doc.rect(0, 0, 5, H, 'F');
+
+    // eyebrow
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(7);
+    doc.setTextColor(...gold);
+    doc.text('DOCUMENTO LEGALE  ·  INFORMATIVA PRIVACY', ML + 5, 50);
+
+    // title
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(36);
+    doc.setTextColor(255, 255, 255);
+    doc.text('Privacy', ML + 5, 70);
+    doc.text('Policy', ML + 5, 85);
+
+    // subtitle
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(180, 180, 210);
+    doc.text('Informativa sul trattamento dei dati personali', ML + 5, 97);
+    doc.text('ai sensi del Regolamento UE 2016/679 (GDPR)', ML + 5, 103);
+
+    // divider
+    doc.setDrawColor(...gold);
+    doc.setLineWidth(0.5);
+    doc.line(ML + 5, 112, W - ML, 112);
+
+    // meta grid
+    const metas = [
+      ['Applicazione', 'CardScoreboard'],
+      ['Titolare', 'CA Technology'],
+      ['Aggiornamento', 'Maggio 2026'],
+      ['Versione', '1.0'],
+    ];
+    metas.forEach((m, i) => {
+      const mx = ML + 5 + (i % 2) * 85;
+      const my = 122 + Math.floor(i / 2) * 18;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(6.5);
+      doc.setTextColor(...muted);
+      doc.text(m[0].toUpperCase(), mx, my);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(220, 220, 240);
+      doc.text(m[1], mx, my + 6);
+    });
+
+    // notice box
+    doc.setFillColor(20, 60, 20);
+    doc.roundedRect(ML + 5, H - 60, TW - 5, 16, 2, 2, 'F');
+    doc.setFillColor(76, 175, 80);
+    doc.circle(ML + 12, H - 52, 2.5, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8);
+    doc.setTextColor(144, 238, 144);
+    const noticeLines = doc.splitTextToSize('Questa applicazione non raccoglie, non trasmette e non condivide alcun dato personale degli utenti.', TW - 25);
+    noticeLines.forEach((l, i) => doc.text(l, ML + 18, H - 53 + i * 5.5));
+
+    // footer cover
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(7);
+    doc.setTextColor(...muted);
+    doc.text('CA Technology  ·  catech-software@outlook.it', ML + 5, H - 20);
+    doc.text('Pagina 1', W - MR, H - 20, { align: 'right' });
+
+    // ── CONTENT PAGES ──
+    newPage();
+
+    sectionTitle('01', 'Titolare del trattamento');
+    para('Il titolare del trattamento dei dati è CA Technology, raggiungibile all\'indirizzo email catech-software@outlook.it.');
+    para('La presente informativa si applica all\'applicazione mobile CardScoreboard, disponibile su Google Play Store.');
+
+    sectionTitle('02', 'Dati raccolti');
+    para('CardScoreboard non raccoglie alcun dato personale. In particolare, l\'applicazione non acquisisce né trasmette:');
+    bullets([
+      'Dati anagrafici o identificativi (nome, cognome, indirizzo email)',
+      'Dati di localizzazione geografica',
+      'Dati di utilizzo o statistiche di comportamento',
+      'Informazioni sul dispositivo (modello, sistema operativo, identificatori univoci)',
+      'Cookie, token pubblicitari o identificatori di tracciamento',
+      'Dati biometrici o sanitari',
+    ]);
+    callout('L\'app non integra SDK di analytics, advertising o crash reporting di terze parti. Nessun dato viene inviato a server esterni durante il normale utilizzo.');
+
+    sectionTitle('03', 'Dati salvati localmente');
+    para('I contenuti inseriti dall\'utente — inclusi nomi dei giocatori, punteggi e storico delle partite — vengono salvati esclusivamente nella memoria locale del dispositivo.');
+    para('Tali informazioni non vengono mai trasmesse all\'esterno, non sono accessibili da CA Technology né da alcun soggetto terzo. L\'utente ne mantiene il pieno controllo e può eliminarle in qualsiasi momento tramite la funzione di cancellazione presente nell\'app o disinstallando l\'applicazione.');
+
+    sectionTitle('04', 'Connessione a internet');
+    para('CardScoreboard è progettata per funzionare in modalità completamente offline. Non viene stabilita alcuna connessione a internet durante il normale utilizzo dell\'applicazione.');
+    para('L\'unica eccezione è rappresentata dal modulo di contatto integrato nell\'app, che consente all\'utente di inviare volontariamente un messaggio allo sviluppatore. Tale funzionalità è attivata esclusivamente su esplicita iniziativa dell\'utente.');
+
+    sectionTitle('05', 'Condivisione dei dati');
+    para('Non essendo raccolto alcun dato personale, non vi è alcuna condivisione di informazioni con soggetti terzi, inserzionisti, partner commerciali, autorità pubbliche o qualsiasi altra entità.');
+    para('CA Technology non vende, affitta né cede a terzi dati relativi agli utenti di CardScoreboard.');
+
+    sectionTitle('06', 'Sicurezza');
+    para('Tutti i dati generati dall\'utente risiedono unicamente sul dispositivo locale. L\'assenza di trasmissione verso server esterni elimina qualsiasi rischio di violazione dei dati in transito.');
+    para('La sicurezza dei dati archiviati localmente è garantita dalle misure di protezione del sistema operativo Android: sandboxing delle applicazioni e cifratura del dispositivo se abilitata dall\'utente.');
+
+    sectionTitle('07', 'Minori');
+    para('CardScoreboard non raccoglie informazioni da alcun utente, inclusi i minori di età. L\'applicazione è adatta a tutte le fasce d\'età e non richiede la creazione di account o la comunicazione di dati personali per il suo utilizzo.');
+
+    sectionTitle('08', 'Modifiche alla Privacy Policy');
+    para('La presente Privacy Policy potrà essere aggiornata in futuro, ad esempio in occasione dell\'introduzione di nuove funzionalità che comportino il trattamento di dati personali.');
+    para('Eventuali modifiche sostanziali saranno comunicate tramite aggiornamento dell\'app su Google Play Store e mediante la modifica della data di "Ultimo aggiornamento" riportata in questa pagina. Si raccomanda di consultare periodicamente questa pagina.');
+
+    sectionTitle('09', 'Contatti');
+    para('Per qualsiasi richiesta, domanda o reclamo relativo alla presente Privacy Policy o al trattamento dei dati, è possibile contattare il titolare del trattamento ai recapiti indicati di seguito.');
+
+    checkPage(22);
+    doc.setFillColor(...ink);
+    doc.roundedRect(ML, y, TW, 20, 2, 2, 'F');
+    doc.setFillColor(...gold);
+    doc.roundedRect(ML, y, 3, 20, 1, 1, 'F');
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10.5);
+    doc.setTextColor(255, 255, 255);
+    doc.text('CA Technology', ML + 8, y + 8);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(...muted);
+    doc.text('Titolare del trattamento', ML + 8, y + 14);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(8.5);
+    doc.setTextColor(...gold);
+    doc.text('catech-software@outlook.it', W - MR - 4, y + 11, { align: 'right' });
+    y += 24;
+
+    addPageFooter();
+    doc.save('CardScoreboard-PrivacyPolicy.pdf');
+
+  } catch(e) {
+    console.error(e);
+    alert('Errore nella generazione del PDF: ' + e.message);
+  } finally {
+    btn.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Scarica PDF`;
+    btn.disabled = false;
+  }
+});
+</script>
+
+</body>
+</html>
