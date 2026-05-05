@@ -1,2 +1,2 @@
-# CardScoreboard-privacy-policy.github.io
+# CardScoreboard.github.io
 Privacy policy of CardScoreboard App
